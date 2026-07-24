@@ -1,0 +1,44 @@
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.event-card {
+  background: var(--surface);
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  padding: 1rem;
+}
+
+.event-card h3 {
+  margin-top: 0;
+  color: #111827;
+}
+
+.event-card p {
+  margin: 0.45rem 0;
+  color: var(--text);
+}
+
+.actions {
+  margin-top: 0.8rem;
+}
+
+.actions a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+}
+
+.actions a:hover {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary-dark);
+}
+
+@media (max-width: 900px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+}

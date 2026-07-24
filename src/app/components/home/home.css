@@ -1,0 +1,39 @@
+.home {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.3rem;
+}
+
+h1 {
+  margin: 0 0 0.8rem;
+  color: #111827;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--surface);
+  text-decoration: none;
+  padding: 0.65rem 0.9rem;
+  border-radius: 4px;
+  border: 1px solid var(--primary);
+  font-weight: 600;
+}
+
+.cta:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+@media (max-width: 640px) {
+  .home {
+    padding: 1rem;
+  }
+}

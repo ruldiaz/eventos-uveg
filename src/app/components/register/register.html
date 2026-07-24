@@ -1,0 +1,62 @@
+<section class="register-card" *ngIf="event; else missingEvent">
+  <h2>Registro al evento</h2>
+  <p><strong>{{ event.title }}</strong></p>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input id="name" class="form-control" type="text" formControlName="name" required />
+      <div class="alert alert-danger" *ngIf="controls['name'].invalid && (controls['name'].dirty || controls['name'].touched)">
+        <div *ngIf="controls['name'].errors?.['required']">Ingresa tu nombre.</div>
+        <div *ngIf="controls['name'].errors?.['minlength']">Mínimo 3 caracteres.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input id="email" class="form-control" type="email" formControlName="email" required />
+      <div class="alert alert-danger" *ngIf="controls['email'].invalid && (controls['email'].dirty || controls['email'].touched)">
+        <div>Ingresa un e-mail válido.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input id="password" class="form-control" type="password" formControlName="password" required />
+      <div class="alert alert-danger" *ngIf="controls['password'].invalid && (controls['password'].dirty || controls['password'].touched)">
+        <div>La contraseña debe tener al menos 8 caracteres.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="eventDate">Fecha del evento</label>
+      <input id="eventDate" class="form-control" type="date" formControlName="eventDate" required />
+      <div class="alert alert-danger" *ngIf="controls['eventDate'].invalid && (controls['eventDate'].dirty || controls['eventDate'].touched)">
+        <div *ngIf="controls['eventDate'].errors?.['pastDate']">La fecha no puede ser anterior a hoy.</div>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="form.invalid"
+      (mouseenter)="submitButtonHover = true"
+      (mouseleave)="submitButtonHover = false"
+      [style.backgroundColor]="form.invalid ? '#6c757d' : (submitButtonHover ? '#0d47a1' : '#1976d2')"
+      [style.borderColor]="form.invalid ? '#6c757d' : (submitButtonHover ? '#0d47a1' : '#1976d2')"
+      [style.color]="'#ffffff'"
+      [style.opacity]="'1'"
+    >
+      Enviar registro
+    </button>
+  </form>
+
+  <p class="message alert alert-success" *ngIf="message">{{ message }}</p>
+</section>
+
+<ng-template #missingEvent>
+  <section class="register-card">
+    <h2>Evento no encontrado</h2>
+    <p>No es posible registrar este evento.</p>
+  </section>
+</ng-template>
