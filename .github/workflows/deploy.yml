@@ -28,11 +28,11 @@ jobs:
         run: npm run build -- --base-href=/eventos-uveg/
 
       - name: SPA fallback for GitHub Pages
-        run: cp dist/EventosUVEG/browser/index.html dist/EventosUVEG/browser/404.html
+        run: cp dist/eventos-uveg/browser/index.html dist/eventos-uveg/browser/404.html
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/EventosUVEG/browser
+          folder: dist/eventos-uveg/browser
           branch: gh-pages
           clean: true
